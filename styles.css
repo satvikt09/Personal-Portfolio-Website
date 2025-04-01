@@ -1,0 +1,448 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #0a0a0a;
+    color: #d4ff00; /* Neon Green */
+    text-align: center;
+    overflow-x: hidden; /* Prevents horizontal scroll */
+}
+
+/* Navbar */
+nav {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background-color: rgba(10, 10, 10, 0.9);
+    padding: 15px 0;
+    z-index: 100;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+/* Sections */
+section {
+    padding: 80px 20px;
+    min-height: 100vh;
+}
+
+/* Home Section */
+#home {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+h1.name {
+    font-size: 120px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+h2 {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 18px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Social Links */
+.social-links {
+    margin-top: 20px;
+}
+
+.social-links img {
+    width: 40px;
+    margin: 10px;
+}
+
+/* About Section */
+#about {
+    padding: 80px 10%;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Updated About Container */
+.about-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    background: #161616;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0px 5px 15px rgba(255, 255, 255, 0.1);
+}
+
+/* Text Section */
+.about-text {
+    flex: 1;
+    max-width: 50%;
+    text-align: left;
+    color: #ccc;
+}
+
+.about-text h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.about-text h3 {
+    font-size: 1.5rem;
+    margin-top: 15px;
+    color: #d4ff00; /* Highlighted Headings */
+}
+
+.about-text p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* Highlighted Text */
+.highlight {
+    color: #b4ff00; /* Neon Green for Important Words */
+    font-weight: bold;
+}
+
+/* Resume Button */
+.resume-btn {
+    display: inline-block;
+    background: #ffcc00;
+    color: #000;
+    padding: 12px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: 0.3s;
+    margin-top: 15px;
+}
+
+.resume-btn:hover {
+    background: #ffaa00;
+}
+
+/* Image Section */
+.about-image {
+    flex: 1;
+    max-width: 40%;
+    text-align: center;
+}
+
+.about-image img {
+    width: 100%;
+    max-width: 350px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+}
+
+/* Projects Section */
+#projects {
+    background-color: #1a1a1a;
+    padding-top: 10px; /* Reduced from 80px */
+}
+
+.project-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px; /* Added padding for better spacing */
+}
+
+.project {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    display: flex; /* Ensure proper alignment */
+    flex-direction: column; /* Stack content vertically */
+    align-items: center; /* Center items horizontally */
+    text-align: center; /* Center text in project boxes */
+    transition: transform 0.3s ease-in-out;
+}
+
+.project h3 {
+    margin: 10px 0; /* Margin around titles */
+}
+
+/* Contact Section */
+#contact {
+    background-color: #121212;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+input, textarea {
+    width: 80%;
+    max-width: 500px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button {
+    background-color: #d4ff00;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 5px;
+}
+
+/* Scrolling Background Text */
+.scrolling-text {
+    position: absolute;
+    width: 100%;
+    font-size: 80px;
+    font-weight: bold;
+    color: rgba(212, 255, 0, 0.1); /* Faint neon effect */
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+/* Top Scrolling Text (Left to Right) */
+.scrolling-text.top {
+    top: 10%;
+}
+
+.scrolling-text.top span {
+    display: inline-block;
+    animation: scroll-text-right 10s linear infinite;
+}
+
+/* Bottom Scrolling Text (Right to Left) */
+.scrolling-text.bottom {
+    bottom: 10%;
+}
+
+.scrolling-text.bottom span {
+    display: inline-block;
+    animation: scroll-text-left 10s linear infinite;
+}
+
+/* Animations */
+@keyframes scroll-text-left {
+    from {
+        transform: translateX(0%);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes scroll-text-right {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0%);
+    }
+}
+
+/* Skills Section */
+#skills {
+    padding: 80px 10% 30px; /* Reduced bottom padding */
+    text-align: center;
+    background: #1a1a1a;
+}
+
+.skills-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.skills-list {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.skill {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    width: 120px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.skill img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 10px;
+}
+
+.skill p {
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffcc00;
+}
+
+.skill:hover {
+    transform: scale(1.1);
+}
+
+.soft-skills {
+    margin-top: 200px; /* Adjusts spacing */
+    font-size: 18px;
+    color: #ffcc00; /* Yellow Text */
+}
+
+.soft-skills h3 {
+    font-size: 22px;
+    color: #d4ff00; /* Neon Green */
+    margin-bottom: 10px;
+}
+
+#projects {
+    background-color: #1a1a1a;
+    padding: 60px 5%;
+    text-align: center;
+}
+
+.project-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+.project {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 25px;
+    border-radius: 12px;
+    min-width: 280px;
+    max-width: 320px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    box-shadow: 0px 5px 15px rgba(255, 255, 255, 0.05);
+    overflow: hidden;
+}
+
+.project:hover {
+    transform: scale(1.06);
+    box-shadow: 0px 8px 20px rgba(255, 255, 255, 0.2);
+}
+
+.project-image {
+    width: 120px; /* Set a uniform width */
+    height: 120px; /* Set a uniform height */
+    border-radius: 15px; /* Rounded edges for a smoother look */
+    padding: 10px; /* Add some padding for spacing */
+    background-color: rgba(255, 255, 255, 0.1); /* Subtle background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 4px 12px rgba(255, 255, 255, 0.2); /* Adds depth */
+    object-fit: contain; /* Ensures the image scales well */
+}
+.project img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 40px;
+}
+
+
+.project h3 {
+    font-size: 20px;
+    margin: 10px 0;
+    color: #d4ff00;
+    font-weight: bold;
+}
+
+.project-description {
+    font-size: 16px;
+    color: #ddd;
+    margin-bottom: 12px;
+    line-height: 1.5;
+}
+
+.project-link {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: #d4ff00;
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.project-link:hover {
+    background-color: #ffaa00;
+}
+
+html {
+    scroll-behavior: smooth; /* Enables smooth scrolling */
+}
+/* Fullscreen Preloader */
+#preloader {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: #aff331; /* Dark Background */
+    color: #101301; /* Neon Green */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+    font-weight: bold;
+    z-index: 9999;
+    transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+}
+
+/* Hides Preloader After Page Loads */
+#preloader.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
