@@ -36,6 +36,9 @@ nav a {
     text-decoration: none;
     font-size: 18px;
 }
+nav a:hover {
+    color: #ffcc00; /* Change color on hover */
+}
 
 /* Sections */
 section {
@@ -139,20 +142,19 @@ p {
 }
 
 /* Resume Button */
-.resume-btn {
+.resume-button {
     display: inline-block;
-    background: #ffcc00;
-    color: #000;
-    padding: 12px 20px;
-    text-decoration: none;
+    background-color: #d3ff00; /* Same neon yellow as GitHub button */
+    color: #000; /* Black text for contrast */
     font-weight: bold;
+    text-decoration: none;
+    padding: 10px 20px;
     border-radius: 5px;
     transition: 0.3s;
-    margin-top: 15px;
 }
 
-.resume-btn:hover {
-    background: #ffaa00;
+.resume-button:hover {
+    background-color: #b4e600; /* Slightly darker on hover */
 }
 
 /* Image Section */
@@ -315,6 +317,7 @@ button {
     width: 60px;
     height: 60px;
     margin-bottom: 10px;
+    border-radius: 20px;
 }
 
 .skill p {
@@ -399,6 +402,68 @@ button {
     font-weight: bold;
 }
 
+/* Projects Section */
+#projects {
+    background-color: #1a1a1a;
+    padding: 60px 5%;
+    text-align: center;
+}
+
+.project-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px; /* Space between project cards */
+}
+
+.project {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 25px;
+    border-radius: 12px;
+    min-width: 280px; /* Minimum width for project cards */
+    max-width: 320px; /* Maximum width for project cards */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    box-shadow: 0px 5px 15px rgba(255, 255, 255, 0.05);
+    overflow: hidden;
+    min-height: 300px; /* Set a minimum height for uniformity */
+}
+
+.project:hover {
+    transform: scale(1.06);
+    box-shadow: 0px 8px 20px rgba(255, 255, 255, 0.2);
+}
+
+.project-image {
+    width: 120px; /* Set a uniform width */
+    height: 120px; /* Set a uniform height */
+    border-radius: 15px; /* Rounded edges for a smoother look */
+    padding: 10px; /* Add some padding for spacing */
+    background-color: rgba(255, 255, 255, 0.1); /* Subtle background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 4px 12px rgba(255, 255, 255, 0.2); /* Adds depth */
+    object-fit: contain; /* Ensures the image scales well */
+}
+
+.project img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 40px;
+}
+
+.project h3 {
+    font-size: 20px;
+    margin: 10px 0;
+    color: #d4ff00;
+    font-weight: bold;
+}
+
 .project-description {
     font-size: 16px;
     color: #ddd;
@@ -408,7 +473,7 @@ button {
 
 .project-link {
     display: inline-block;
-    margin-top: 10px;
+    margin-top: auto; /* Pushes the link to the bottom of the card */
     padding: 10px 15px;
     background-color: #d4ff00;
     color: #000;
@@ -419,30 +484,61 @@ button {
 }
 
 .project-link:hover {
-    background-color: #ffaa00;
+    background-color: #f67c0a;
 }
 
 html {
     scroll-behavior: smooth; /* Enables smooth scrolling */
 }
-/* Fullscreen Preloader */
+/* Loading Screen */
 #preloader {
     position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    background: #aff331; /* Dark Background */
-    color: #101301; /* Neon Green */
+    background: #b7ff3b;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 32px;
-    font-weight: bold;
     z-index: 9999;
-    transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+    transition: opacity 1s ease;
+}
+
+.loading-text {
+    font-size: 24px;
+    font-weight: bold;
+    font-family: 'Orbitron', sans-serif; /* Apply Orbitron font */
+    letter-spacing: 2px; /* Add some spacing for a techy look */
+    text-transform: uppercase; /* Make text uppercase for a modern feel */
+    color: #090b02; /* Use your primary color for contrast */
 }
 
 /* Hides Preloader After Page Loads */
 #preloader.hidden {
     opacity: 0;
     visibility: hidden;
+}
+/* Progress Bar Styles */
+#progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0; /* Start with 0 width */
+    height: 5px; /* Height of the progress bar */
+    background-color: #b4ff4b; /* Neon green color */
+    z-index: 9998; /* Below the preloader */
+    transition: width 0.1s ease; /* Smooth transition for width */
+}
+/* Initially hide sections */
+.fade-section {
+    opacity: 0;
+    transform: translateY(30px); /* Slight movement down */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* When section is visible, fade it in */
+.fade-section.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
