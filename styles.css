@@ -541,3 +541,44 @@ html {
     opacity: 1;
     transform: translateY(0);
 }
+
+/* Mobile screens: Adjust styles for screens smaller than 768px */
+@media (max-width: 768px) {
+    /* Adjust nav links */
+    nav ul {
+        flex-direction: column; /* Stack items vertically */
+        text-align: center;
+    }
+
+    nav ul li {
+        padding: 10px 0;
+    }
+
+    /* Center align sections */
+    section {
+        text-align: center;
+        padding: 20px;
+    }
+
+    /* Make images responsive */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* Fix skill icons alignment */
+    .skills-list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* 2 columns */
+        gap: 10px;
+        justify-content: center;
+    }
+
+    /* Center buttons */
+    .resume-button {
+        display: block;
+        width: 80%;
+        margin: 10px auto;
+        text-align: center;
+    }
+}
