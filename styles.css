@@ -153,7 +153,7 @@ p {
 }
 
 .resume-button:hover {
-    background-color: #b4e600; /* Slightly darker on hover */
+    background-color: #f5b218; /* Slightly darker on hover */
 }
 
 /* Image Section */
@@ -542,43 +542,100 @@ html {
     transform: translateY(0);
 }
 
-/* Mobile screens: Adjust styles for screens smaller than 768px */
-@media (max-width: 768px) {
-    /* Adjust nav links */
+/* MOBILE RESPONSIVENESS */
+@media screen and (max-width: 768px) {
+    
+    /* Navbar */
     nav ul {
-        flex-direction: column; /* Stack items vertically */
+        flex-direction: column;
         text-align: center;
     }
-
     nav ul li {
-        padding: 10px 0;
+        margin: 10px 0;
     }
 
-    /* Center align sections */
-    section {
+    /* Home Section */
+    #home {
         text-align: center;
-        padding: 20px;
+        padding: 50px 20px;
+    }
+    .name {
+        font-size: 40px;
+    }
+    .role {
+        font-size: 18px;
     }
 
-    /* Make images responsive */
-    img {
-        max-width: 100%;
+    /* About Section */
+    .about-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .about-text {
+        width: 90%;
+    }
+    .about-image img {
+        width: 80%;
+        max-width: 300px;
+    }
+
+    /* Skills Section */
+    .skills-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .skill img {
+        width: 60px;
+        height: 60px;
+    }
+
+    /* Projects Section */
+    .project-list {
+        flex-direction: column;
+        align-items: center;
+    }
+    .project {
+        width: 90%;
+    }
+    .project img {
+        width: 100%;
         height: auto;
     }
 
-    /* Fix skill icons alignment */
-    .skills-list {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr); /* 2 columns */
-        gap: 10px;
-        justify-content: center;
+    /* Contact Section */
+    #contact form {
+        width: 90%;
     }
+    input, textarea {
+        width: 100%;
+    }
+}
+/* FIX NAVBAR DROPDOWN OVERLAP */
+nav ul {
+    position: absolute;
+    top: 60px; /* Adjust this based on your navbar height */
+    left: 0;
+    width: 100%;
+    background: black; /* Matches your theme */
+    display: none; /* Hide by default */
+    flex-direction: column;
+    text-align: center;
+    z-index: 1000; /* Ensure it's above other content */
+}
 
-    /* Center buttons */
-    .resume-button {
-        display: block;
-        width: 80%;
-        margin: 10px auto;
-        text-align: center;
-    }
+/* Show the menu when active */
+nav ul.active {
+    display: flex;
+}
+
+/* Fix menu item spacing */
+nav ul li {
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Make sure content doesn't get hidden under navbar */
+body {
+    padding-top: 80px; /* Adjust based on navbar height */
 }

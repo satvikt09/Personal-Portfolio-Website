@@ -14,8 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     }
-
-    // Example usage: show the first section on page load
+  //the first section on page load
     showSection(0);
 
     // Preloader functionality
@@ -32,12 +31,11 @@ document.addEventListener("DOMContentLoaded", function () {
             // Fade out the preloader
             preloader.style.opacity = '0';
 
-            // Wait for the fade-out transition to complete before hiding the preloader
             setTimeout(() => {
                 preloader.style.display = 'none'; // Hide the preloader
-            }, 1000); // Match this duration with the CSS transition duration
+            }, 1000);
         }
-    }, 20); // Speed of loading (Adjust if needed)
+    }, 20); // Speed of loading
 
     // Scroll Progress Bar
     window.addEventListener('scroll', function () {
@@ -45,7 +43,6 @@ document.addEventListener("DOMContentLoaded", function () {
         const scrollHeight = document.documentElement.scrollHeight; // Total height of the document
         const clientHeight = document.documentElement.clientHeight; // Height of the viewport
 
-        // Calculate the scroll percentage
         const scrollPercent = (scrollTop / (scrollHeight - clientHeight)) * 100;
 
         // Update the width of the progress bar
@@ -61,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const sectionTop = section.getBoundingClientRect().top;
             const windowHeight = window.innerHeight;
 
-            if (sectionTop < windowHeight - 100) { // Adjust threshold if needed
+            if (sectionTop < windowHeight - 100) {
                 section.classList.add("visible");
             }
         });
@@ -73,4 +70,43 @@ document.addEventListener("DOMContentLoaded", function () {
     // Run once on page load in case some sections are already in view
     fadeInOnScroll();
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelector("form").addEventListener("submit", function (e) {
+        e.preventDefault(); // Prevent form submission
+
+        let nameInput = document.querySelector('input[type="text"]');
+        let emailInput = document.querySelector('input[type="email"]');
+        let messageInput = document.querySelector('textarea');
+
+        let name = nameInput.value.trim();
+        let email = emailInput.value.trim();
+        let message = messageInput.value.trim();
+
+        let nameRegex = /^[A-Za-z\s]+$/; // Only letters and spaces
+        let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Basic email format
+
+        if (!nameRegex.test(name)) {
+            alert("❌ Please enter a valid name (letters only).");
+            nameInput.focus();
+            return;
+        }
+
+        if (!emailRegex.test(email)) {
+            alert("❌ Please enter a valid email address.");
+            emailInput.focus();
+            return;
+        }
+
+        if (message.length < 5) {
+            alert("❌ Your message must be at least 5 characters long.");
+            messageInput.focus();
+            return;
+        }
+
+        alert("✅ Form submitted successfully!");
+        this.submit(); // Submit form if all checks pass
+    });
+});
+
 
